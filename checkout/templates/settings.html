@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v4.1.1">
+  <title>Line Notification Settings</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="static/form-validation.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item ">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/settings">Setting</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+
+
+  <div class="container">
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="static/img/line1.png" alt="" width="72" height="72">
+      <h2>Line Notification Project</h2>
+      <p class="lead">This project use RD55UP12-V module (C-Intelligect module) is gateway,it get PLC data and sent
+        notify to Line notification.You can set PLC parameter by use this webpage</p>
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-12 order-md-1">
+        <h4 class="mb-3">PLC Configurations</h4>
+        <!-- PLC IP ADDRESS -->
+        <form class="needs-validation" novalidate action="{{ url_for('ip_address') }}" method="POST">
+          <div class="row">
+            <div class="col-md-9 mb-3">
+              <label for="plcIp">IP Adress</label>
+              <input type="text" class="form-control" name="plcip" id="plcip" placeholder="192.168.1.105" value="" required>
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="plcPort">Port no.</label>
+              <input type="text" class="form-control" name="plcport" id="plcport" placeholder="8880" value="" required>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Insert IP Address</button>
+        </form>
+        <hr class="mb-4">
+
+        <h4 class="mb-3">Line Notifications </h4>
+
+        <!-- PLC ADD NEW DATA -->
+        <form  action="{{ url_for('insert') }}" method="POST">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="lineToken">Line Token URL</label>
+              <input type="text" class="form-control" name="linetoken" id="linetoken" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="groupName">Line Group Name</label>
+              <input type="text" class="form-control" name="groupname" id="groupname" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="lineMessage">Line Messages</label>
+              <input type="text" class="form-control"  name="linemessage" id="linemessage" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="linePlc">PLC Tags</label>
+              <input type="text" class="form-control" name="lineplc" id="lineplc" placeholder="M10000-M10500" value="" required>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Insert Data</button>
+        </form>
+
+      </div>
+    </div>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">&copy; Modify 20200109 MITSUBISHI ELECTRIC FACTORY AUTOMATION</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+      </ul>
+    </footer>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script>
+    window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')
+  </script>
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="form-validation.js"></script>
+</body>
+
+</html>
